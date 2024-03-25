@@ -42,7 +42,13 @@ const config: Array<RollupOptions> = [
           // 'process.env.BUILD_HASH': JSON.stringify(getRandomHash(6)),
         },
       }),
-      terser(),
+      terser({
+        mangle: {
+          properties: {
+            regex: /^__/,
+          },
+        },
+      }),
     ],
   },
 ]
