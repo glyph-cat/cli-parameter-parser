@@ -1,3 +1,5 @@
+import { argPatternGenerator } from './arg-pattern-generator'
+
 /**
  * @public
  */
@@ -10,8 +12,8 @@ export class ParameterParser {
 
   constructor(private readonly parameters: Array<string>) { }
 
-  getOne(alias: string, name: string): string {
-    const pattern = new RegExp(`^(-${alias}|--${name})$`, 'i')
+  getOne(alias: string | null, name: string): string {
+    const pattern = argPatternGenerator(alias, name)
     for (let i = 0; i < this.parameters.length; i++) {
       if (pattern.test(this.parameters[i])) {
         this.usedParameterIndexes[i] = true
@@ -22,8 +24,8 @@ export class ParameterParser {
     return null
   }
 
-  getBoolean(alias: string, name: string): boolean {
-    const pattern = new RegExp(`^(-${alias}|--${name})$`, 'i')
+  getBoolean(alias: string | null, name: string): boolean {
+    const pattern = argPatternGenerator(alias, name)
     for (let i = 0; i < this.parameters.length; i++) {
       if (pattern.test(this.parameters[i])) {
         // Boolean parameters are automatically true if specified without a trailing value.
@@ -43,8 +45,8 @@ export class ParameterParser {
     return false
   }
 
-  getAll(alias: string, name: string): Array<string> {
-    const pattern = new RegExp(`^(-${alias}|--${name})$`, 'i')
+  getAll(alias: string | null, name: string): Array<string> {
+    const pattern = argPatternGenerator(alias, name)
     const collectedValues: Array<string> = []
     for (let i = 0; i < this.parameters.length; i++) {
       if (pattern.test(this.parameters[i])) {
@@ -65,8 +67,8 @@ export class ParameterParser {
     return collectedValues
   }
 
-  getTrailing(alias: string, name: string): Array<string> {
-    const pattern = new RegExp(`^(-${alias}|--${name})$`, 'i')
+  getTrailing(alias: string | null, name: string): Array<string> {
+    const pattern = argPatternGenerator(alias, name)
     for (let i = 0; i < this.parameters.length; i++) {
       if (pattern.test(this.parameters[i])) {
         this.usedParameterIndexes[i] = true
