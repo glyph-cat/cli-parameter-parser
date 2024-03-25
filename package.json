@@ -1,6 +1,6 @@
 {
   "name": "@glyph-cat/cli-parameter-parser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple parameter parser for NodeJS CLI applications.",
   "main": "lib/cjs/index.js",
   "types": "lib/types/index.d.ts",
