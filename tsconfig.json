@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "./temp/tsc/types",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "importHelpers": false,
+    "isolatedModules": true,
+    "lib": [
+      "esnext",
+    ],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "./temp/tsc/js",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": false,
+    "stripInternal": true,
+    "target": "ESNext",
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.draft*",
+    "**/*.old*",
+    "**/*.test*",
+  ],
+  "include": [
+    "./custom.d.ts",
+    "./src/**/*.ts",
+  ],
+}
