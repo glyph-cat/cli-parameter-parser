@@ -1,3 +1,7 @@
+This repository has been merged into [`@glyph-cat/swiss-army-knife`](https://github.com/glyph-cat/swiss-army-knife/tree/main/src/packages/cli-parameter-parser#readme).
+
+---
+
 ## Glossary
 
 * name — The full name of the parameter (without spaces), for example, "anything", and it would be passed as an argument with two leading dashes like `--anything`.
